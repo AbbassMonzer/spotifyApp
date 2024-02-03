@@ -1,0 +1,14 @@
+<div class="container-fluid custom-width">
+  <div class="row mx-auto mb-5 mt-5">
+    <h2>{{ artistName }} Albums:</h2>
+    <div *ngFor="let album of artistAlbums" class="col-lg-3 col-md-6 col-sm-12">
+      <app-card
+        [albumName]="album?.name"
+        [albumImage]="album?.images[0]?.url"
+        [albumDate]="album?.release_date"
+        [albumTracks]="album?.total_tracks"
+        [album]="true"
+      ></app-card>
+    </div>
+  </div>
+</div>

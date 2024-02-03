@@ -1,0 +1,25 @@
+<div class="card card-img-wrapper" *ngIf="artist">
+  <img
+    class="card-img-top"
+    src="{{ artistImage }}"
+    alt="poster"
+    (click)="navigate()"
+  />
+  <div class="card-body animate">
+    <h6 class="card-title">{{ artistName }}</h6>
+    <h6>Rating: <span [innerHTML]="getStarRating(artistPopularity)"></span></h6>
+    <h6 class="card-title">
+      Followers: {{ artistFollowers }}
+      <img src="assets/icons/heart.svg" alt="" width="20" height="20" />
+    </h6>
+  </div>
+</div>
+
+<div class="card card-img-wrapper" *ngIf="album">
+  <img class="card-img-top" src="{{ albumImage }}" alt="poster" />
+  <div class="card-body animate">
+    <h6 class="card-title">{{ albumName }}</h6>
+    <h6>Release Date: {{ albumDate }}</h6>
+    <h6 class="card-title">Tracks: {{ albumTracks }}</h6>
+  </div>
+</div>

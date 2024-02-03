@@ -1,0 +1,56 @@
+.form-group,.form-control{
+    margin-top: 5px;   
+    margin-bottom: 5px;
+}
+
+label{
+    display: flex;
+}
+.register-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .register-container {
+    text-align: center;
+    padding: 115px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .spotify-icon {
+    width: 80px; 
+    height: 80px; 
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary {
+    background-color: #1FDF64; 
+    color: #ffffff; 
+    padding: 10px 40px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 25px;
+    margin-top: 40px;
+  }
+  
+  .btn-danger{
+    border-radius: 25px;
+    padding: 10px 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #008800; 
+  }
+
+  @media only screen and (max-width: 600px) {
+    .register-container{
+      padding: 30px;
+    }
+  }

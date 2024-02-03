@@ -1,0 +1,47 @@
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: #f5f5f5; 
+    overflow: hidden;
+  }
+  
+  .login-container {
+    text-align: center;
+    background-color: #ffffff; 
+    padding: 100px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .spotify-icon {
+    width: 80px;
+    height: 80px; 
+    margin-bottom: 20px;
+  }
+  
+
+  .login-button {
+    background-color: #1FDF64;
+    color: #ffffff;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 25px;
+    margin-top: 30px;
+  }
+  
+  .login-button:hover {
+    background-color: #008800; 
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .login-container{
+      padding: 30px;
+    }
+  }

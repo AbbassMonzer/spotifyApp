@@ -1,0 +1,198 @@
+<div class="register-wrapper">
+  <div class="register-container">
+    <img src="assets/icons/logo.svg" alt="spotify Icon" class="spotify-icon" />
+    <form [formGroup]="artistRegistrationForm" (ngSubmit)="onSubmit()">
+      <!-- Artist Personal Information -->
+      <div formGroupName="personalInfo" class="row">
+        <div class="form-group col-lg-6">
+          <label for="firstName">First Name*</label>
+          <input
+            type="text"
+            id="firstName"
+            formControlName="firstName"
+            class="form-control"
+            [class.is-invalid]="isInvalid('personalInfo.firstName')"
+          />
+          <div
+            *ngIf="isInvalid('personalInfo.firstName')"
+            class="invalid-feedback"
+          >
+            Please fill this field.
+          </div>
+        </div>
+        <div class="form-group col-lg-6">
+          <label for="lastName">Last Name*</label>
+          <input
+            type="text"
+            id="lastName"
+            formControlName="lastName"
+            class="form-control"
+            [class.is-invalid]="isInvalid('personalInfo.lastName')"
+          />
+          <div
+            *ngIf="isInvalid('personalInfo.lastName')"
+            class="invalid-feedback"
+          >
+            Please fill this field.
+          </div>
+        </div>
+
+        <div class="form-group col-lg-6">
+          <label for="dob">Date of Birth*</label>
+          <input
+            type="date"
+            id="dob"
+            formControlName="dob"
+            class="form-control"
+            [class.is-invalid]="isInvalid('personalInfo.dob')"
+          />
+          <div *ngIf="isInvalid('personalInfo.dob')" class="invalid-feedback">
+            Please fill this field.
+          </div>
+        </div>
+        <div class="form-group col-lg-6">
+          <label for="email">Email*</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="form-control"
+            [class.is-invalid]="isInvalid('personalInfo.email')"
+          />
+          <div *ngIf="isInvalid('personalInfo.email')" class="invalid-feedback">
+            Please fill this field with a valid email address.
+          </div>
+        </div>
+
+        <div class="form-group col-lg-6">
+          <label for="phoneNumber">Phone Number*</label>
+          <input
+            type="tel"
+            id="phoneNumber"
+            formControlName="phoneNumber"
+            class="form-control"
+            [class.is-invalid]="isInvalid('personalInfo.phoneNumber')"
+          />
+          <div
+            *ngIf="isInvalid('personalInfo.phoneNumber')"
+            class="invalid-feedback"
+          >
+            Please fill this field with a valid Lebanese phone number.
+          </div>
+        </div>
+        <div class="form-group col-lg-6">
+          <label for="profilePicture">Profile Picture*</label>
+          <input
+            type="file"
+            id="profilePicture"
+            formControlName="profilePicture"
+            class="form-control"
+            [class.is-invalid]="isInvalid('personalInfo.profilePicture')"
+          />
+          <div
+            *ngIf="isInvalid('personalInfo.profilePicture')"
+            class="invalid-feedback"
+          >
+            Please fill this field.
+          </div>
+        </div>
+
+        <div class="form-group col-lg-6">
+          <label for="stageName">Stage Name</label>
+          <input
+            type="text"
+            id="stageName"
+            formControlName="stageName"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group col-lg-6">
+          <label for="startingDate">Starting Date</label>
+          <input
+            type="date"
+            id="startingDate"
+            formControlName="startingDate"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group col-lg-6">
+          <label for="backstory">Artist Backstory</label>
+          <textarea
+            id="backstory"
+            formControlName="backstory"
+            class="form-control"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Artist Albums -->
+      <div formArrayName="albums" class="row">
+        <div
+          *ngFor="let album of albums.controls; let i = index"
+          class="col-lg-6 mt-4"
+        >
+          <div [formGroupName]="i">
+            <label for="albumPicture">Album Picture</label>
+            <input
+              type="file"
+              id="albumPicture"
+              formControlName="picture"
+              class="form-control"
+            />
+
+            <label for="albumDate">Album Date</label>
+            <input
+              type="date"
+              id="albumDate"
+              formControlName="date"
+              class="form-control"
+            />
+
+            <label for="albumSongs">Album Songs</label>
+            <input
+              type="text"
+              id="albumSongs"
+              formControlName="songs"
+              class="form-control"
+            />
+
+            <label for="albumName">Album Name</label>
+            <input
+              type="text"
+              id="albumName"
+              formControlName="name"
+              class="form-control"
+            />
+
+            <label for="albumDuration">Album Duration</label>
+            <input
+              type="text"
+              id="albumDuration"
+              formControlName="duration"
+              class="form-control"
+            />
+
+            <button
+              type="button"
+              (click)="removeAlbum(i)"
+              class="btn btn-danger mt-5"
+            >
+              Remove Album
+            </button>
+          </div>
+        </div>
+        <div class="form-group col-lg-6">
+          <button
+            type="button"
+            (click)="addAlbum()"
+            class="btn btn-primary mt-5"
+          >
+            Add Album
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-5">Submit</button>
+    </form>
+  </div>
+</div>
