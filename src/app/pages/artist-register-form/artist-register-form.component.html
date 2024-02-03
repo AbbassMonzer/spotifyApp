@@ -17,7 +17,7 @@
             *ngIf="isInvalid('personalInfo.firstName')"
             class="invalid-feedback"
           >
-            Please fill this field.
+          First Name must be at least 3 characters
           </div>
         </div>
         <div class="form-group col-lg-6">
@@ -33,7 +33,7 @@
             *ngIf="isInvalid('personalInfo.lastName')"
             class="invalid-feedback"
           >
-            Please fill this field.
+          Last Name must be at least 3 characters
           </div>
         </div>
 
@@ -47,7 +47,7 @@
             [class.is-invalid]="isInvalid('personalInfo.dob')"
           />
           <div *ngIf="isInvalid('personalInfo.dob')" class="invalid-feedback">
-            Please fill this field.
+            Age must be at least 25
           </div>
         </div>
         <div class="form-group col-lg-6">
