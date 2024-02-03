@@ -16,7 +16,7 @@ export class ArtistRegisterFormComponent {
       personalInfo: this.fb.group({
         firstName: ['', [Validators.required, Validators.minLength(3)]],
         lastName: ['', [Validators.required, Validators.minLength(3)]],
-        dob: ['', [Validators.required]],
+        dob: ['', [Validators.required,this.validateMinAge(25)]],
         email: ['', [Validators.required, Validators.email]],
         phoneNumber: [
           '',
@@ -29,6 +29,16 @@ export class ArtistRegisterFormComponent {
       }),
       albums: this.fb.array([]), // Form array for albums
     });
+  }
+
+  private validateMinAge(minAge: number) {
+    return (control: { value: string | number | Date; }) => {
+      const birthday = new Date(control.value);
+      const today = new Date();
+      const age = today.getFullYear() - birthday.getFullYear();
+
+      return age >= minAge ? null : { minAge: true };
+    };
   }
 
   // Getters for easy access in the template
