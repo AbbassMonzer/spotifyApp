@@ -1,56 +1,91 @@
-.form-group,.form-control{
-    margin-top: 5px;   
-    margin-bottom: 5px;
+.form-group,
+.form-control {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-label{
-    display: flex;
+label {
+  display: flex;
 }
+
+.close{
+  cursor: pointer;
+ position: absolute;
+ right: -65px;
+  top: 25px;
+  width: 50px;
+}
+
 .register-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-container {
+  text-align: center;
+  padding: 115px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.spotify-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #1FDF64;
+  color: #ffffff;
+  padding: 15px 45px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 25px;
+  margin-top: 40px;
+}
+
+.btn-secondary {
+  background-color: #FFF;
+  color: #1FDF64;
+  padding: 15px 45px;
+  font-size: 20px;
+  border: 1px solid #1FDF64;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 25px;
+  margin-top: 40px;
+}
+
+.btn-danger {
+  border-radius: 25px;
+  padding: 15px 45px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #008800;
+}
+
+.btn-secondary:hover {
+  background-color: #1FDF64;
+  color: #FFF;
+
+}
+
+@media only screen and (max-width: 600px) {
   .register-container {
-    text-align: center;
-    padding: 115px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    padding: 30px;
   }
-  
-  .spotify-icon {
-    width: 80px; 
-    height: 80px; 
-    margin-bottom: 20px;
-  }
-  
-  .btn-primary {
-    background-color: #1FDF64; 
-    color: #ffffff; 
-    padding: 10px 40px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 25px;
-    margin-top: 40px;
-  }
-  
-  .btn-danger{
-    border-radius: 25px;
-    padding: 10px 40px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+}
 
-  .btn-primary:hover {
-    background-color: #008800; 
-  }
-
-  @media only screen and (max-width: 600px) {
-    .register-container{
-      padding: 30px;
+  /* Media Query for Mobile Devices */
+  @media (max-width: 480px) {
+    .close{
+     right: -40px;
     }
   }

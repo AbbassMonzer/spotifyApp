@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/AuthGuardService';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       import('./pages/artist-search/artist-search.module').then(
         (m) => m.ArtistSearchModule
       ),
+      canActivate: [AuthGuard],
   },
   {
     path: 'artist-register-form',

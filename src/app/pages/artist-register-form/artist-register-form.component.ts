@@ -27,7 +27,7 @@ export class ArtistRegisterFormComponent {
         startingDate: [''],
         backstory: [''],
       }),
-      albums: this.fb.array([]), // Form array for albums
+      albums: this.fb.array([]),
     });
   }
 
@@ -41,7 +41,6 @@ export class ArtistRegisterFormComponent {
     };
   }
 
-  // Getters for easy access in the template
   get personalInfo() {
     return this.artistRegistrationForm.get('personalInfo') as FormGroup;
   }

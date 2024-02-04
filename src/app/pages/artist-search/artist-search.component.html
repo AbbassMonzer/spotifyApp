@@ -1,4 +1,6 @@
-<div class="d-flex align-items-center justify-content-center mt-5">
+<div class="container-fluid">
+
+<div class="d-flex mt-5 ml-20">
   <form>
     <div class="form-group">
       <h3>Search for an artist</h3>
@@ -14,18 +16,15 @@
   </form>
 </div>
 
-<div class="text-center spotify-icon" *ngIf="searchTerm == ''">
-  <img src="assets/icons/spotify-logo.png" alt="" width="300" height="200" />
-</div>
+
 
 <div
   class="text-center mt-5"
-  *ngIf="searchTerm !== '' && searchResults.length == 0"
 >
-  <h3>No results found</h3>
+<h3>Showing <span class="results">{{searchResults.length}}</span> results</h3>
 </div>
 
-<div class="container-fluid custom-width">
+<div class="container-fluid w-100 mt-5">
   <div class="row mx-auto mb-5">
     <div
       *ngFor="let artist of searchResults"
@@ -41,4 +40,6 @@
       ></app-card>
     </div>
   </div>
+</div>
+
 </div>

@@ -13,28 +13,22 @@ export class SpotifyService {
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   getAuthUrl(): string {
-    const scopes = ['user-read-private', 'user-read-email'];
-    const state = 'your-random-state';
-
+    const scopes = ['user-read-email'];
     const authUrl =
       `https://accounts.spotify.com/authorize?` +
       `client_id=${this.clientId}` +
       `&response_type=token` +
       `&redirect_uri=${this.redirectUri}` +
-      `&scope=${scopes.join(' ')}` +
-      `&state=${state}`;
-
+      `&scope=${scopes.join(' ')}`
     return authUrl;
   }
 
   getArtistAlbums(artistId: string): Observable<any> {
     const accessToken = localStorage.getItem('spotify_access_token');
     const url = `${this.apiUrl}/artists/${artistId}/albums`;
-
     const headers = new HttpHeaders({
       Authorization: `Bearer ${accessToken}`,
     });
-
     return this.http.get(url, { headers });
   }
 
@@ -44,30 +38,12 @@ export class SpotifyService {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${accessToken}`,
     });
-
     const params = new HttpParams().set('q', query).set('type', 'artist');
-
     return this.http.get(`${this.apiUrl}/search`, { headers, params });
   }
 
-  async handleCallback(): Promise<boolean> {
-    return new Promise((resolve) => {
-      this.route.fragment.subscribe((fragment: string | null) => {
-        if (fragment) {
-          const queryParams = new URLSearchParams(fragment);
-          const accessToken = queryParams.get('access_token');
 
-          // Handle the access token
-          if (accessToken) {
-            localStorage.setItem('spotify_access_token', accessToken);
-            console.log('token', accessToken);
-            resolve(true);
-          } else {
-            console.error('Access token not found in the URL fragment.');
-            resolve(false);
-          }
-        }
-      });
-    });
-  }
+
 }
+
+
